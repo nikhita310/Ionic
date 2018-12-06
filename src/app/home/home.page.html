@@ -1,10 +1,59 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Home</ion-title>
-  </ion-toolbar>
+   <ion-toolbar color="secondary">
+      <ion-title>
+         <ion-icon name="home"></ion-icon>
+         Home
+      </ion-title>
+   </ion-toolbar>
 </ion-header>
-
 <ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
+   <ion-card>
+      <ion-img item-start src="http://dailyadvisor.net/wp-content/uploads/2013/05/online-shopping-sites-electronics.jpg"></ion-img>
+      <ion-card-header>
+        <ion-card-title color="secondary">DIGITAL WORLD</ion-card-title>
+    </ion-card-header>
+      <ion-card-content>
+         <p>
+            <ion-text color="dark">
+               Welcome to Digital World.Explore the wide range of electronics.Welcome to Digital World.Explore the wide range of electronics.
+            </ion-text>
+         </p>
+      </ion-card-content>
+   </ion-card>
+   <ion-text color="secondary">
+         <h1>Product Details</h1>
+   </ion-text>
+   <ion-list>
+      <ion-item *ngFor="let product of productDetails;">
+         <ion-button fill="clear" (click)="getProductDetails('/resultPage',product.name)"> {{ product.name }}</ion-button>
+      </ion-item>
+   </ion-list>
+   <ion-text color="secondary">
+      <h1>Wish List</h1>
+   </ion-text>
+   <ion-item>
+      <ion-label>
+         <ion-icon name="logo-apple"></ion-icon>
+         Iphone XS
+      </ion-label>
+      <ion-checkbox checked (ionChange)="presentToast()"></ion-checkbox>
+   </ion-item>
+   <ion-item>
+      <ion-label>
+         <ion-icon name="watch"></ion-icon>
+         Apple Watch
+      </ion-label>
+      <ion-checkbox (ionChange)="presentToast()"></ion-checkbox>
+   </ion-item>
+  
+  <ion-label>
+         HREF With ID Button
+      </ion-label> <ion-button [href]="'/resultPage/Television'" routerDirection="forward" color="secondary" >NEXT PAGE</ion-button>
+    <ion-label>
+         HREF With No ID Button
+      </ion-label><ion-button [href]="'/resultPage'" routerDirection="forward" color="secondary" >No ID</ion-button>
+      <ion-label>
+         Navigate By URL
+      </ion-label> <ion-button fill="clear" (click)="getNextPage('/resultPage')" routerDirection="forward" color="secondary" >NEXT</ion-button>
+   
 </ion-content>
